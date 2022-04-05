@@ -1,0 +1,91 @@
+:root{
+    --bgColor:#000; //背景颜色
+    --bg-lightenColor: #1a1a1a; //在背景颜色上变浅10%
+    --themeColor:#34d399; //主题颜色
+    --theme-lightenColor: #88e5c3;//在主题颜色上变浅10%
+    --textColor: #fff; //文字颜色
+    --text-darkenColor: #b3b3b3;//在主题颜色上变深30%
+}
+
+@bg: var(--bgColor);
+@bgLighten: var(--bg-lightenColor);
+@theme: var(--themeColor);
+@themeLighten: var(--theme-lightenColor);
+@text: var(--textColor);
+@textDarken: var(--text-darkenColor);
+
+// 文字hover
+.hover-text{
+    cursor: pointer;
+    &:hover{
+        color: @theme;
+    }
+}
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// 滚动条
+.scrollbar{
+    &::-webkit-scrollbar{
+        /*滚动条整体样式*/
+        width: 6px;
+        height: 1px;
+    }
+    &::-webkit-scrollbar-thumb {
+        display: none;
+        /*滚动条里面小方块*/
+        border-radius: 10px;
+        box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+        background   : @textDarken;
+    }
+    &:hover{
+        &::-webkit-scrollbar-thumb{
+            display: block;
+        }
+    }
+}
+
+// 响应式
+@media all and (max-width:900px) {
+    .sm-1{
+        width: 100%;
+    }
+    .sm-2{
+        width: 50%;
+    }
+    .sm-3{
+        width: 33.333%;
+    }
+}
+@media all and (min-width:900px) {
+    .md-1{
+        width: 100%;
+    }
+    .md-2{
+        width: 50%;
+    }
+    .md-3{
+        width: 33.333%;
+    }
+    .md-4{
+        width: 25%;
+    }
+    .md-5{
+        width: 20%;
+    }
+}
+@media all and (min-width:1200px) {
+    .lg-3 {
+        width: 33.333%;
+    }
+    .lg-4 {
+        width: 25%;
+    }
+    .lg-5{
+        width: 20%;
+    }
+}
+
