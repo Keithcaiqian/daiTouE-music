@@ -16,14 +16,14 @@ import type {MvUrl} from "@/models/mv";
 import type {PlayListHot} from "@/models/playlist_hot";
 
 
-export async function useSongUrl(id: number) {
+export async function songUrlApi(id: number) {
     const {data} = await http.get<{ data: SongUrl[] }>('/song/url', {id: id})
-    return data.first()
+    return data[0]
 }
 
-export async function useDetail(id: number) {
+export async function songDetailApi(id: number) {
     const {songs} = await http.get<{ songs: Song[] }>('/song/detail', {ids: id})
-    return songs.first()
+    return songs[0]
 }
 
 export async function bannerApi() {
@@ -155,7 +155,7 @@ export async function useMvDetail(mvid: number) {
 
 }
 
-export async function useMvUrl(id: number) {
+export async function mvUrlApi(id: number) {
     const {data} = await http.get<{ data: MvUrl }>("mv/url", {id: id})
     return data
 }

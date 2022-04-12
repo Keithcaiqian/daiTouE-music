@@ -21,7 +21,7 @@
         width: 100%;
         height: 70px;
         .flex1{
-            flex: 1;
+            width: 33.3333%;
         }
         .play-main{
             display: flex;

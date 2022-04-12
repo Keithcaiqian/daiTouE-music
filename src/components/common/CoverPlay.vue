@@ -70,7 +70,7 @@
             height: 18px;
             line-height: 18px;
             padding: 0 8px;
-            background: #000;
+            background: @bg;
             border-radius: 20px;
             bottom: 8px;
             right: 8px;

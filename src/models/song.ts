@@ -1,3 +1,4 @@
+// 歌曲详情
 export interface Song {
     name: string;
     id: number;

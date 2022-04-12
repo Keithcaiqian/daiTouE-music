@@ -5,7 +5,7 @@
         :navigation="true" 
         :grab-cursor="true"
     >
-        <swiper-slide class="slide sm-3 md-2 lg-1" v-for="item in banners" :key="item.bannerId">
+        <swiper-slide class="slide sm-1 md-2 lg-3" v-for="item in banners" :key="item.bannerId">
             <img :src="item.pic" alt="">
         </swiper-slide>
     </swiper>

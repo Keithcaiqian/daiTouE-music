@@ -8,6 +8,7 @@ const Like = getAsyncPage("../views/like/Like.vue");
 const Local = getAsyncPage("../views/local/Local.vue");
 const Download = getAsyncPage("../views/download/Download.vue");
 const Recently = getAsyncPage("../views/recently/Recently.vue");
+const MvPlay = getAsyncPage("../views/MV/MvPlay.vue");
 
 export default [
   {
@@ -77,5 +78,10 @@ export default [
     meta:{
       menu: 'recently'
     } 
+  },
+  { 
+    path: "/mvPlay",
+    name: 'mvPlay',
+    component: MvPlay,
   },
 ];

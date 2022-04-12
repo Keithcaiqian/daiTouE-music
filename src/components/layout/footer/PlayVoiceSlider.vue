@@ -1,33 +1,72 @@
 <template>
     <div class="voice-box">
-        <div class="sliderBox">
-            <div class="slider">
-                <div class="slider-dot-box">
-                    <div class="dot" :style="{height:useVoice}"></div>
-                </div>
-            </div>
-        </div>
-        <div class="num">{{useVoice}}</div>
-        <IconPark class="voice hover-text" :icon="useMuted?VolumeMute:VolumeSmall" size="16" theme="filled" @click="toggleMuted"/>
+        <Slider class="volumeBox" v-model="volume"/>
+        <div class="num">{{volume}}</div>
+        <IconPark 
+            class="voice hover-text" 
+            :icon="isMute?VolumeMute:VolumeSmall" 
+            size="16" theme="filled" 
+            @click="toggleMuted"
+        />
     </div>
 </template>
 
 <script setup lang="ts">
-    import { ref } from 'vue'
+    import { toRefs, watch } from 'vue'
     import IconPark from '@/components/common/IconPark.vue'
+    import Slider from '@/components/common/slider/Slider.vue'
 
     import {VolumeSmall,VolumeMute} from "@icon-park/vue-next";
+    import { usePlayerStore } from '@/store/player';
 
-    const useVoice = ref(40);//音量
-    const useMuted = ref(false); //是否静音
-
-    const toggleMuted = () => {
-        useMuted.value = !useMuted.value;
-    }
-
+    const { volume, isMute } = toRefs(usePlayerStore());
+    const { toggleMuted, setVolume } = usePlayerStore();
+    watch(
+        () => volume.value,
+        (value:number) => {
+            setVolume(value);
+        }
+    )
 </script>
 
+<style lang="less">
+.volumeBox{
+    position: relative;
+    width: 6px;
+    height: 80px;
+    background-color: #999;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    .slider{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 6px;
+        border-radius: 2px;
+        background-color: @theme;
+        height: 30px;
+        &-dot-box{
+            position: absolute;
+            right: 50%;
+            top: 0;
+            transform: translate(50%,-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: @bg;
+            border: 2px solid @theme;
+            box-sizing: border-box;
+            cursor: grab;
+            &.drag{
+                cursor: grabbing;
+            }
+        }
+    }
+}
+</style>
+
 <style lang="less" scoped>
+    
     .voice-box{
         position: relative;
         display: flex;
@@ -51,36 +90,6 @@
             transform: translateX(-50%) rotate(45deg);
             border-right: 1px solid #444;
             border-bottom: 1px solid #444;
-        }
-        .sliderBox{
-            position: relative;
-            width: 6px;
-            height: 80px;
-            background-color: #999;
-            border-radius: 2px;
-            margin-bottom: 8px;
-            .slider{
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 6px;
-                border-radius: 2px;
-                background-color: @theme;
-                height: 30px;
-                &-dot-box{
-                    position: absolute;
-                    right: 50%;
-                    top: 0;
-                    transform: translate(50%,-50%);
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 50%;
-                    background-color: @bg;
-                    border: 2px solid @theme;
-                    box-sizing: border-box;
-                    cursor: pointer;
-                }
-            }
         }
         .num{
             font-size: 12px;

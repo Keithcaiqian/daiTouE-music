@@ -3,7 +3,8 @@
         <Title title='你的专属歌单'/>
         <div class="list">
             <div class="list-item sm-3 md-4 lg-5" v-for="item in randomPersonalized" :key="item.id">
-                <CoverPlay  :img="item.picUrl" :count="item.playCount"/>
+                <CoverPlay class="song"  :img="item.picUrl" :count="item.playCount"/>
+                <div class="name">{{ item.name }}</div>
             </div>
         </div>    
     </div>
@@ -36,6 +37,16 @@
         .list-item{
             padding: 8px;
             box-sizing: border-box;
+            .song{
+                aspect-ratio: 1 / 1;
+            }
+            .name{
+                font-size: 12px;
+                color: @textDarken;
+                width: 100%;
+                margin-top: 8px;
+                overflow: hidden;
+            }
         }
     }
 </style>
