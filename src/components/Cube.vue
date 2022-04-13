@@ -1,5 +1,5 @@
 <template>
-    <div class="cube-box" ref="cube">
+    <div class="cube-box" @click="changeTheme" ref="cube">
         <div class="item">的</div>
         <div class="item">音</div>
         <div class="item">头</div>
@@ -8,6 +8,27 @@
         <div class="item">乐</div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { ThemeType } from '@/theme/model'
+import { setTheme } from '@/theme/index'
+import { getRandom } from '@/utils/random';
+
+const themeArr:ThemeType[] = [];
+for (const item in ThemeType) {
+    if (Object.prototype.hasOwnProperty.call(ThemeType, item)) {
+        themeArr.push(item as ThemeType)
+    }
+}
+const len = themeArr.length;
+
+const changeTheme = () => {
+    const index = getRandom(0, len);
+    setTheme(themeArr[index]);
+}
+
+
+</script>
 
 <style lang="less" scoped>
     .cube-box {

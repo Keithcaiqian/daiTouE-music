@@ -85,7 +85,7 @@
         }
         .theme-modal{
             width: 300px;
-            height: 200px;
+            height: 155px;
             position: absolute;
             right: 50px;
             top: 50px;
@@ -94,7 +94,8 @@
             border-radius: 10px;
             border: 1px solid @theme;
             display: flex;
-            justify-content: space-around;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
         }
     }

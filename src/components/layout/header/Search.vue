@@ -24,7 +24,7 @@
             width: 206px;
             height: 30px;
             border-radius: 16px;
-            border: 1px solid #44403c;
+            border: 1px solid @textDarken;
             box-sizing: border-box;
             transition: all .5s;
             &:hover{
@@ -32,6 +32,9 @@
             }
             &:focus{
                 border-color: @theme;
+            }
+            &::placeholder{
+                color: @textDarken;
             }
         }
     }

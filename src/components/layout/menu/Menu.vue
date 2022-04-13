@@ -53,7 +53,7 @@
                     &:not(.active){
                         cursor: pointer;
                         &:hover{
-                            background-color: rgb(68,64,60);
+                            background-color: @hover;
                         }
                     }
                     .icon{

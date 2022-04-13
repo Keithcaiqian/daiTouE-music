@@ -39,6 +39,7 @@
     .cover-box{
         position: relative;
         width: 100%;
+        overflow: hidden;
         &:hover{
             top: -4px;
             .cover-modal{
@@ -55,6 +56,7 @@
         }
         .cover-modal{
             position: absolute;
+            border-radius: 6px;
             left: 0;
             top: 0;
             width: 100%;

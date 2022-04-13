@@ -11,7 +11,6 @@
 <script setup lang="ts">
     import { themes } from '@/theme/model'
     import { setTheme } from '@/theme/index'
-    console.log(themes)
 </script>
 
 
@@ -19,6 +18,7 @@
     .theme{
         width: 50px;
         height: 50px;
+        margin: 0 20px;
         border-radius: 8px;
     }
 </style>
