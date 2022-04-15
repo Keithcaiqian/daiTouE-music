@@ -30,7 +30,7 @@
 
     // 播放、暂停音乐的action
     const { isPlay, togglePlay } = toRefs(usePlayerStore());
-    console.log(isPlay.value)
+    
     let timer:any = null; //计时器
     const useVolumeShow = ref(false);
     const useVolumeOpacity = ref(1); //透明度 ，加一点过度效果

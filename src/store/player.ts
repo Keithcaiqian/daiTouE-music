@@ -6,6 +6,7 @@ import { watch } from 'vue';
 
 interface STATE {
     audio: HTMLAudioElement,
+    playList: Song[],
     isPlay: boolean,
     id: number,
     song: Song,
@@ -18,6 +19,7 @@ interface STATE {
 export const usePlayerStore =  defineStore('player',{
     state: (): STATE => ({
         audio: new Audio(), //audio对象
+        playList: [] as Song[],//播放列表,
         isPlay: false, //是否正在播放
         id: 0, //播放的音乐的id
         song: {} as Song, //正在播放的歌曲详情
@@ -40,6 +42,18 @@ export const usePlayerStore =  defineStore('player',{
             },err => {
                 console.log(err)
             });          
+        },
+        // 存入播放列表
+        pushList(replace: boolean, list: Song[]){
+            if (replace) {
+                this.playList = list;
+            }else{
+                list.forEach(song => {
+                    if (!this.playList.some(s => s.id == song.id)) {
+                        this.playList.push(song)
+                    }
+                })
+            }
         },
         // 播放音乐
         play(){

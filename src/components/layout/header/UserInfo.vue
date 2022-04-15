@@ -15,7 +15,6 @@ interface userInfo {
 }
 
 const props = defineProps<userInfo>()
-console.log(props.isLogin)
 
 </script>
 

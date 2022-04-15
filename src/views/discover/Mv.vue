@@ -4,7 +4,7 @@
         <div class="list-item sm-2 md-4" 
             v-for="item in personalizedMv" 
             :key="item.id"
-            @click="$router.push({name: 'mvPlay',query:{id: item.id}})"
+            @click="$router.push({name: routerName.mvPlay,query:{id: item.id}})"
         >
             <CoverPlay class="mv"  :img="item.picUrl" :count="item.playCount" :video='true'/>
             <div class="mv-name ellipsis">{{ item.name }}</div>
@@ -16,7 +16,7 @@
 <script setup lang="ts">
     import Title from '@/components/common/Title.vue'
     import CoverPlay from '@/components/common/CoverPlay.vue'
-
+    import { routerName } from '@/router/routerName'
     import { useVedioStore } from '@/store/vedio';
     import { onMounted, toRefs } from 'vue-demi'
 

@@ -41,12 +41,12 @@ export async function personalizedNewSongApi() {
     return result
 }
 
-export async function usePlayListDetail(id: number, s: number = 8) {
+export async function playListDetailApi(id: number, s: number = 8) {
     const {playlist} = await http.get<{ playlist: PlayListDetail }>('/playlist/detail', {id: id, s: s})
     return playlist
 }
 
-export async function usePlayListTrackAll(id: number) {
+export async function playListTrackAllApi(id: number) {
 
     const {songs} = await http.get<{ songs: Song[] }>('playlist/track/all', {id: id})
     return songs

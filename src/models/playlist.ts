@@ -1,3 +1,4 @@
+// 播放列表详情
 export interface PlayListDetail {
     id: number;
     name: string;

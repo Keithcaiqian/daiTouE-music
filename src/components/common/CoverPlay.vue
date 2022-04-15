@@ -29,12 +29,6 @@
     }>();
 </script>
 
-<style>
-    .icon svg{
-        vertical-align: text-top;
-    }
-</style>
-
 <style lang="less" scoped>
     .cover-box{
         position: relative;
@@ -79,6 +73,9 @@
             font-size: 12px;
             .icon{
                 margin-right: 6px;
+                /deep/svg{
+                    vertical-align: text-top;
+                }
             }
         }
     }

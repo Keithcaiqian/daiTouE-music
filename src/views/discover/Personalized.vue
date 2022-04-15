@@ -2,7 +2,12 @@
     <div class="personalized">
         <Title title='你的专属歌单'/>
         <div class="list">
-            <div class="list-item sm-3 md-4 lg-5" v-for="item in randomPersonalized" :key="item.id">
+            <div 
+                class="list-item sm-3 md-4 lg-5" 
+                v-for="item in randomPersonalized" 
+                :key="item.id"
+                @click="$router.push({name:routerName.playList,query:{id: item.id}})"
+            >
                 <CoverPlay class="song"  :img="item.picUrl" :count="item.playCount"/>
                 <div class="name">{{ item.name }}</div>
             </div>
@@ -13,7 +18,7 @@
 <script setup lang="ts">
     import Title from '@/components/common/Title.vue'
     import CoverPlay from '@/components/common/CoverPlay.vue'
-
+ import { routerName } from '@/router/routerName'
     import { computed, onMounted, toRefs } from 'vue';
     import { useMusicStore } from '@/store/music'
     import { sampleSize } from 'lodash'

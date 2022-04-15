@@ -1,4 +1,5 @@
 import { getAsyncPage } from "@/utils/index";
+import { routerName } from './routerName'
 
 const Discover = getAsyncPage("../views/discover/Discover.vue");
 const Music = getAsyncPage("../views/music/Music.vue");
@@ -9,79 +10,85 @@ const Local = getAsyncPage("../views/local/Local.vue");
 const Download = getAsyncPage("../views/download/Download.vue");
 const Recently = getAsyncPage("../views/recently/Recently.vue");
 const MvPlay = getAsyncPage("../views/MV/MvPlay.vue");
+const PlayList = getAsyncPage("../views/playList/PlayList.vue");
 
 export default [
   {
     path:'/',
-    redirect: {name: 'discover'},
+    redirect: {name:  routerName.discover},
   },
   { 
     path: "/discover",
-    name: 'discover',
+    name: routerName.discover,
     component: Discover,
     meta:{
-      menu: 'discover'
+      menu: routerName.discover
     } 
   },
   { 
     path: "/music",
-    name: 'music',
+    name: routerName.music,
     component: Music,
     meta:{
-      menu: 'music'
+      menu: routerName.music
     } 
   },
   { 
     path: "/video",
-    name: 'video',
+    name: routerName.video,
     component: Video,
     meta:{
-      menu: 'video'
+      menu: routerName.video
     } 
   },
   { 
     path: "/radio",
-    name: 'radio',
+    name: routerName.radio,
     component: Radio,
     meta:{
-      menu: 'radio'
+      menu: routerName.radio
     } 
   },
   { 
     path: "/like",
-    name: 'like',
+    name: routerName.like,
     component: Like,
     meta:{
-      menu: 'like'
+      menu: routerName.like
     } 
   },
   { 
     path: "/local",
-    name: 'local',
+    name: routerName.local,
     component: Local,
     meta:{
-      menu: 'local'
+      menu: routerName.local
     } 
   },
   { 
     path: "/download",
-    name: 'download',
+    name: routerName.download,
     component: Download,
     meta:{
-      menu: 'download'
+      menu: routerName.download
     } 
   },
   { 
     path: "/recently",
-    name: 'recently',
+    name: routerName.recently,
     component: Recently,
     meta:{
-      menu: 'recently'
+      menu: routerName.recently
     } 
   },
   { 
     path: "/mvPlay",
-    name: 'mvPlay',
+    name: routerName.mvPlay,
     component: MvPlay,
   },
+  {
+    path:'/playList',
+    name:routerName.playList,
+    component: PlayList
+  }
 ];

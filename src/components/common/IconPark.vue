@@ -18,3 +18,4 @@ defineProps<{
   strokeWidth?: number
 }>()
 </script>
+
