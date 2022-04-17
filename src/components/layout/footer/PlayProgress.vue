@@ -13,6 +13,7 @@
     import { ref, toRefs, watch, watchEffect } from "vue";
     import Slider from '@/components/common/slider/Slider.vue'
     import { Direction } from '@/components/common/slider/Slider'
+    import { debounce } from '@/utils/debounce'
 
     const { currentTime, duration } = toRefs(usePlayerStore());
     const { setCurrentTime } = usePlayerStore();
@@ -23,9 +24,9 @@
         percent.value = Math.round(currentTime.value / duration.value * 100);
     })
 
-    const changeTime = (time:number) => {
+    const changeTime = debounce((time:number) => {
         setCurrentTime(time / 100 * duration.value)
-    }
+    },50)
 
 </script>
 
@@ -33,7 +34,7 @@
     .progress{
         width: 100%;
         position: relative;
-        height: 10px;
+        height: 2px;
         padding: 4px;
         .sliderBox{
             width: 100%;

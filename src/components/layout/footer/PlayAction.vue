@@ -6,7 +6,10 @@
             <span class="time-right">{{ useFormatDuring(duration) }}</span>
         </div>
         <IconPark :icon="TextMessage" size="18" :stroke-width="3" class="btn hover-text" title="歌词"/>
-        <IconPark :icon="MusicList" size="18" :stroke-width="3" class="btn hover-text" title="播放列表"/>
+        <span class="listBox hover-text" @click="showPlayList = true">
+            <IconPark :icon="MusicList" size="18" :stroke-width="3" class="btn" title="播放列表"/>
+            <span class="listNum">{{ playListCount }}</span>
+        </span> 
     </div>
 </template>
 
@@ -17,7 +20,7 @@
     import { toRefs } from 'vue-demi'
     import { useFormatDuring } from '@/utils/number'
 
-    const { currentTime, duration } = toRefs(usePlayerStore());
+    const { currentTime, duration, playListCount, showPlayList } = toRefs(usePlayerStore());
 
 </script>
 
@@ -33,5 +36,16 @@
         .btn{
             margin: 0 6px;
         }
+        .listBox{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .listNum{
+                font-size: 12px;
+                margin-left: -7px;
+                margin-top: -2px;
+            }
+        }
+        
     }
 </style>

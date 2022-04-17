@@ -19,6 +19,8 @@ declare module '@vue/runtime-core' {
     MoreText: typeof import('./src/components/common/MoreText.vue')['default']
     PlayAction: typeof import('./src/components/layout/footer/PlayAction.vue')['default']
     PlayControll: typeof import('./src/components/layout/footer/PlayControll.vue')['default']
+    PlayList: typeof import('./src/components/layout/playList/PlayList.vue')['default']
+    PlayListItem: typeof import('./src/components/layout/playList/PlayListItem.vue')['default']
     PlayMode: typeof import('./src/components/layout/footer/PlayMode.vue')['default']
     PlayProgress: typeof import('./src/components/layout/footer/PlayProgress.vue')['default']
     PlaySong: typeof import('./src/components/layout/footer/PlaySong.vue')['default']

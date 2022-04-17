@@ -17,6 +17,7 @@
                 <Footer />
             </footer>
         </div>
+        <PlayList />
     </div>
 </template>
 
@@ -25,6 +26,7 @@
     import Header from '@/components/layout/header/Header.vue'
     import Footer from '@/components/layout/footer/Footer.vue'
     import Cube from '@/components/Cube.vue'
+    import PlayList from '@/components/layout/playList/PlayList.vue'
 </script>
 
 <style lang="less" scoped>

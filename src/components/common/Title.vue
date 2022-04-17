@@ -14,11 +14,11 @@ defineProps<{
 }>()
 </script>
 
-<style lang="less">
+<style scoped lang="less">
   .title{
     padding: 16px 0 12px;
     font-size: 20px;
-    svg{
+    :deep(svg){
       vertical-align: bottom;
     }
   }

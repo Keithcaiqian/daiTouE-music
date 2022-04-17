@@ -30,7 +30,7 @@
     const songs = ref<Song[]>([]);
 
     const playAll = () => {
-        pushList(true,songs.value)
+        pushList(true,...songs.value)
         playById(songs.value[0].id);
     }
 

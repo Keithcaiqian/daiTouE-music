@@ -1,10 +1,10 @@
 <template>
     <div class="controll-box">
         <PlayMode class="btn hover-text"/>
-        <IconPark :icon="GoStart" size="28" class="btn hover-text" />
+        <IconPark @click="prevPlay" :icon="GoStart" size="28" class="btn hover-text" />
         <IconPark :icon="isPlay?PauseOne:Play" size="45" theme="filled" class="btn play-btn"
               @click="togglePlay"/>
-        <IconPark :icon="GoEnd" size="28" class="btn hover-text" />
+        <IconPark @click="nextPlay" :icon="GoEnd" size="28" class="btn hover-text" />
         <div class="btn voice-box" 
             @mouseenter="volumeShow" 
             @mouseleave="volumeHide">
@@ -29,7 +29,8 @@
     import { usePlayerStore } from '@/store/player';
 
     // 播放、暂停音乐的action
-    const { isPlay, togglePlay } = toRefs(usePlayerStore());
+    const { isPlay, togglePlay,  } = toRefs(usePlayerStore());
+    const { prevPlay, nextPlay } = usePlayerStore();
     
     let timer:any = null; //计时器
     const useVolumeShow = ref(false);
